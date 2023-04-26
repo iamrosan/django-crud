@@ -1,0 +1,23 @@
+{% extends 'vegetable/base.html' %}
+{% block view %}
+<h3 style="text-align:center"> Receipe Details</h3>
+<h5 style="text-align:center">We have {{receipes.count}} recipes</h5>
+<div class="container" style="text-align:center">
+
+    {% for receipe in receipes %}
+        <div class="card">
+            <h4>{{ receipe.receipe_name }}</h4>
+            <div class="card-body">
+            <!-- <img src="./vegetable/receipe/img_7.gif" alt="" srcset=""> -->
+            <img src="E:\programming with me\django\receipeProject\public\static\receipe\20230325_095726.jpg" > <br>
+            {{receipe.receipe_description}} <br>
+            <a href="{% url 'delete-receipe' receipe.id %}"><button type="submit" class="btn btn-primary">Delete</button></a>  
+            <a href="{% url 'update-receipe' receipe.id %}"><button type="submit" class="btn btn-primary">Update</button></a> 
+            
+        </div>
+        </div>
+    {% endfor %}
+    {% endblock view %}
+
+
+</div>

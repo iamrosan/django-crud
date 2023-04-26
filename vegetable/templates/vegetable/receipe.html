@@ -1,0 +1,23 @@
+{% extends 'vegetable/base.html' %}
+
+{% block receipe %}
+<h3 style="text-align:center">Add Receipe </h3>
+<div class="container mt-5">
+    <form class="'col-6 mx-auto card p-3 shadow-lg " method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+        <label for="receipe-name">Receipe Name</label>
+        <input type="text" name="receipe_name" class="form-control" placeholder="Receipe Name" required>
+        </div>
+        <div class="form-group">
+        <label for="receipe-description">Description</label>
+        <textarea name="receipe_description" class="form-control" placeholder="Receipe Description" required></textarea>
+        </div>
+        <div class="form-group">
+        <label class="form-check-label" for="exampleCheck1">Receipe Image</label> <br>
+        <input type="file" name="receipe_image">
+        </div>
+        <button type="submit" class="btn btn-primary">Add</button>
+    </form>
+</div>
+{% endblock receipe %}

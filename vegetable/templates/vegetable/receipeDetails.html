@@ -2,8 +2,25 @@
 {% block view %}
 <h3 style="text-align:center"> Receipe Details</h3>
 <h5 style="text-align:center">We have {{receipes.count}} recipes</h5>
+<form method="post">
+    {% csrf_token %}
+    <div class="input-group rounded">
+        <div class="row col-md-6 mx-auto text-center">
+            <div class="col-8">
+              <input type="search" class="form-control rounded" placeholder="Search" name='search_detail' aria-label="Search" aria-describedby="search-addon" />
+            </div>
+            <span class="input-group-text border-0" id="search-addon">
+                <button type="submit" style="border:none; outline: none;">
+                    <i class="fas fa-search"></i>
+                </button>
+            </span>
+          </div>
+          
+        
+      </div>
+</form>
 <div class="container" style="text-align:center">
-
+    
     {% for receipe in receipes %}
         <div class="card">
             <h4>{{ receipe.receipe_name }}</h4>

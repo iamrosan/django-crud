@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 
 # Create your views here.
 def home(request):
@@ -28,6 +29,11 @@ def receipe(request):
 @login_required(login_url='login')
 def viewReceipe(request):
     receipes = Receipe.objects.all()
+    if request.method=='POST':
+        search_detail = request.POST['search_detail']
+        print(search_detail)
+        # query = 
+        receipes = Receipe.objects.filter(receipe_name__icontains=search_detail)
     return render(request,'vegetable/receipeDetails.html',{'receipes':receipes})
 
 
